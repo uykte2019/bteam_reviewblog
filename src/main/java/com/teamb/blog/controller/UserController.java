@@ -40,7 +40,7 @@ public class UserController {
     }
 
     // API get user
-    @PostMapping("")
+    @PostMapping("/login")
     public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
         return iUserService.getUser(username);
     }
