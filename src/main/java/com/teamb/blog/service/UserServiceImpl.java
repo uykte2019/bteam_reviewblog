@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -56,7 +57,7 @@ public class UserServiceImpl implements  IUserService {
 
 
 	@Override
-	public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
+	public ResponseEntity<List<User>> getUser(@RequestParam("username") String username, @RequestBody User user){
         return new ResponseEntity<List<User>>( userRepository.findByUsername(username), HttpStatus.OK);
 	}
 }

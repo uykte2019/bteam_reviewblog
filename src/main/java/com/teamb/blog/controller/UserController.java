@@ -44,7 +44,7 @@ public class UserController {
 
     // API get user
     @PostMapping("/login")
-    public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
-        return iUserService.getUser(username);
+    public ResponseEntity<List<User>> getUser(@RequestParam("username") String username,  @RequestBody User user){
+        return iUserService.getUser(username, user);
     }
 }

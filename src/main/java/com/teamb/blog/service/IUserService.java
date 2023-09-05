@@ -18,5 +18,5 @@ public interface IUserService {
 	public Boolean deleteUser(String username);
 	
 	//get user
-	public ResponseEntity<List<User>> getUser(String username);
+	public ResponseEntity<List<User>> getUser(String username, User user);
 }
