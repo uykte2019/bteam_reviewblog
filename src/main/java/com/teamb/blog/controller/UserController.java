@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "www.idrsoft.com:20106")
+@CrossOrigin(origins = "https://teamb-project1.onrender.com")
 @RestController
 @RequestMapping("/reviewblog/api/v1/user")
 public class UserController {
