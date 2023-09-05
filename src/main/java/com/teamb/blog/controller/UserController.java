@@ -1,5 +1,6 @@
 package com.teamb.blog.controller;
 
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.teamb.blog.model.User;
 import com.teamb.blog.service.IUserService;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://127.0.0.1:3000")
 @RestController
 @RequestMapping("/reviewblog/api/v1/user")
 public class UserController {
@@ -22,7 +24,8 @@ public class UserController {
 //    }
 
     // API add user
-    @PostMapping("")
+    @PostMapping(value ="", consumes = "application/json", produces = "application/json" )
+    @ResponseBody
     public User registerUser(@RequestBody User user){
         return iUserService.registerUser(user);
     }

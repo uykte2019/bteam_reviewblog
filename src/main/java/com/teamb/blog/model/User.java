@@ -2,21 +2,33 @@ package com.teamb.blog.model;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+
 @Entity
 @Table(name = "user")
+@JsonIgnoreProperties(ignoreUnknown = true)
+//@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class User {
 	
 	@Id
-	@Column(name = "username")
+	@Column(name = "username", columnDefinition = "jsonb")
+	//@Type(type = "jsonb")
 	private String username;
 	
-	@Column(name = "password")
+	@Column(name = "password", columnDefinition = "jsonb")
+	//@Type(type = "jsonb")
 	private String password;
 	
-	@Column(name = "name")
+	@Column(name = "name", columnDefinition = "jsonb")
+	//@Type(type = "jsonb")
 	private String name;
 	
-	@Column(name = "role")
+	@Column(name = "role", columnDefinition = "jsonb")
+	//@Type(type = "jsonb")
 	@Enumerated(EnumType.STRING)
 	private Role role;
 	
