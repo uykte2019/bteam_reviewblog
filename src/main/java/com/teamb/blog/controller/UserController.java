@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://127.0.0.1:3000")
 @RestController
 @RequestMapping("/reviewblog/api/v1/user")
 public class UserController {
@@ -41,7 +40,7 @@ public class UserController {
     }
 
     // API get user
-    @GetMapping("")
+    @PostMapping("")
     public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
         return iUserService.getUser(username);
     }
