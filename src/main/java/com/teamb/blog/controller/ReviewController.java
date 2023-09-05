@@ -33,8 +33,8 @@ public class ReviewController {
     }
 
     // API delete review
-    @DeleteMapping("{id}")
-    public boolean deleteReview(@PathVariable("id") long id){
+    @DeleteMapping("")
+    public boolean deleteReview(@RequestParam("id") long id){
         return iReviewService.deleteReview(id);
     }
 

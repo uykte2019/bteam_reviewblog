@@ -56,7 +56,7 @@ public class UserServiceImpl implements  IUserService {
 
 
 	@Override
-	public ResponseEntity<List<User>> getUser(@RequestParam("username") String username, @RequestParam String password){
+	public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
         return new ResponseEntity<List<User>>( userRepository.findByUsername(username), HttpStatus.OK);
 	}
 }

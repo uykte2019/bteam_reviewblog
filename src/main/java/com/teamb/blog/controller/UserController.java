@@ -41,7 +41,7 @@ public class UserController {
 
     // API get user
     @GetMapping("")
-    public ResponseEntity<List<User>> getUser(@RequestParam("username") String username, @RequestParam String password){
-        return iUserService.getUser(username, password);
+    public ResponseEntity<List<User>> getUser(@RequestParam("username") String username){
+        return iUserService.getUser(username);
     }
 }
