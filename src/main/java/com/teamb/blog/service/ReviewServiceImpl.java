@@ -33,7 +33,7 @@ public class ReviewServiceImpl implements  IReviewService {
             	review1.setTitle(review.getTitle());
             	review1.setContent(review.getContent());
             	review1.setAuthor(review.getAuthor());
-            	review1.setCreatedtime(review.getCreatedtime());
+//            	review1.setCreatedtime(review.getCreatedtime());
             	review1.setUpdatedtime(review.getUpdatedtime());
 
                 return reviewRepository.save(review1);
