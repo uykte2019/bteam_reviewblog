@@ -1,6 +1,5 @@
 package com.teamb.blog.service;
 
-import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
@@ -18,5 +17,5 @@ public interface IUserService {
 	public Boolean deleteUser(String username);
 	
 	//get user
-	public ResponseEntity<List<User>> getUser(String username, User user);
+	public ResponseEntity<?> getUser(String username, User user);
 }

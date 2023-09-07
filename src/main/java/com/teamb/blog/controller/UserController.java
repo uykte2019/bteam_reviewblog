@@ -1,11 +1,7 @@
 package com.teamb.blog.controller;
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.teamb.blog.model.User;
 import com.teamb.blog.service.IUserService;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +40,7 @@ public class UserController {
 
     // API get user
     @PostMapping("/login")
-    public ResponseEntity<List<User>> getUser(@RequestParam("username") String username,  @RequestBody User user){
+    public ResponseEntity<?> getUser(@RequestParam("username") String username,  @RequestBody User user){
         return iUserService.getUser(username, user);
     }
 }

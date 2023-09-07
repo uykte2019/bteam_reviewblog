@@ -1,5 +1,6 @@
 package com.teamb.blog.service;
 
+import com.teamb.blog.model.APIResponse;
 import com.teamb.blog.model.User;
 import com.teamb.blog.repository.UserRepository;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements  IUserService {
+	
     @Autowired
     private UserRepository userRepository;
 
@@ -57,7 +59,23 @@ public class UserServiceImpl implements  IUserService {
 
 
 	@Override
-	public ResponseEntity<List<User>> getUser(@RequestParam("username") String username, @RequestBody User user){
-        return new ResponseEntity<List<User>>( userRepository.findByUsername(username), HttpStatus.OK);
+	public ResponseEntity<?> getUser(@RequestParam("username") String username, @RequestBody User user){
+		List<User> userList = userRepository.findByUsername(username);
+		if (userList.size() > 0 ) {
+			User foundUser = userList.get(0);
+			String password = user.getPassword();
+			if (password.equals(foundUser.getPassword())){
+				return new ResponseEntity<User>( foundUser , HttpStatus.OK);
+			} else {
+				APIResponse response = new APIResponse("password", "Password isn't correct", false);
+				return new ResponseEntity<APIResponse>(response, HttpStatus.UNAUTHORIZED);
+			}
+			
+		} else {
+			APIResponse response = new APIResponse("username", "Username isn't found", false);
+			return new ResponseEntity<APIResponse>(response, HttpStatus.NOT_FOUND);
+		}
+        
 	}
 }
+
